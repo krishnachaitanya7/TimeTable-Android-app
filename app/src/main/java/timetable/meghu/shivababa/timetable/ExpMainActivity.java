@@ -62,6 +62,10 @@ public class ExpMainActivity extends ActionBarActivity {
 
     }
 
+    /**
+     * Initiating the text views with onclicklistener and onlongclicklistener
+     */
+
 
     public void tvinit() {
         SharedPreferences sharedpref = getSharedPreferences("MyData", Context.MODE_PRIVATE);
@@ -239,6 +243,10 @@ public class ExpMainActivity extends ActionBarActivity {
 
     }
 
+    /**
+     * onclicklistener object
+     */
+
     OnClickListener m = new OnClickListener(){
 
 
@@ -250,7 +258,9 @@ public class ExpMainActivity extends ActionBarActivity {
         }
     };
 
-
+    /**
+     * onlongclicklistener object
+     */
 
     OnLongClickListener o = new OnLongClickListener(){
 
@@ -308,6 +318,13 @@ public class ExpMainActivity extends ActionBarActivity {
 
     };
 
+    /**
+     * used to get string from dialogue and put them into sharedpreferences
+     * @param keyid
+     * @param strinkey
+     * @param s
+     */
+
     private void userinput(int keyid,String strinkey, String s) {
 
           if(s ==null){
@@ -324,6 +341,12 @@ public class ExpMainActivity extends ActionBarActivity {
 
 
     }
+
+    /**
+     * used to get subject code from string its algorithmically defined to sustain crash when input invalid strings
+     * @param s
+     * @return
+     */
 
     private String subcode(String s) {
 
@@ -352,6 +375,12 @@ public class ExpMainActivity extends ActionBarActivity {
         return k[0];
 
     }
+
+    /**
+     * used to get course name from string its algorithmically defined to sustain crash
+     * @param s
+     * @return
+     */
     private String subname(String s) {
 
         String[] k = {" "," "};
@@ -410,6 +439,10 @@ public class ExpMainActivity extends ActionBarActivity {
      * Member object for the chat services
      */
 
+
+    /**
+     * handler for chat service
+     */
     public final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -544,12 +577,24 @@ public class ExpMainActivity extends ActionBarActivity {
         mChatService.connect(device, secure);
     }
 
+    /**
+     * to create menu for the app
+     * @param menu
+     * @return
+     */
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.bluetooth_chat, menu);
         return true;
     }
+
+    /**
+     * switch for options selected
+     * @param item
+     * @return
+     */
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -583,6 +628,11 @@ public class ExpMainActivity extends ActionBarActivity {
         }
         return false;
     }
+
+    /** convert sharedpreference to string to send it through bluetooth
+     *
+     * @return
+     */
 
     public StringBuffer SharedPreferenceToString()  {
 
